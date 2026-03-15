@@ -1,420 +1,442 @@
-Your Markdown **content is good**, but the preview breaks because of a few structural issues:
-
-* Missing blank lines around headings
-* Tables not separated properly
-* Code blocks not isolated
-* Horizontal rules (`---`) touching other content
-* Title hierarchy inconsistent
-
-I corrected the **format only** (not your wording). This version will render cleanly in **GitHub, VS Code, Notion, and Hackathon submission portals**.
-
----
-
-````md
 # Guide-Pay
-### Parametric income insurance for India's gig delivery workers
 
-> Auto-pays when floods, outages, or curfews stop them from working.  
-> Zero claims. Zero paperwork.
+### Parametric Income Insurance for India's Gig Delivery Workers
 
-**Team SentinelX · KL University · Guidewire DEVTrails 2026**
-
----
-
-## The Problem
-
-Ravi Kumar, 27, delivers for Zepto in Kondapur, Hyderabad.  
-Earns ₹800/day.
-
-July 2024 — IMD issues a Red Alert.  
-Flash floods hit his zone. Zepto suspends operations.
-
-Ravi loses ₹640 in one day.
-
-He opens no insurance app.  
-Nothing covers this.
-
-- **12+ million** gig delivery workers in India  
-- External disruptions cause **20–30% monthly income loss** during monsoon seasons  
-- **Zero** parametric income insurance products exist for this segment  
-- Estimated uninsured exposure: **₹4,200 crore / year**
+> Auto-pays when floods, outages, or curfews stop delivery workers from earning.
+> **Zero claims. Zero paperwork.**
 
 ---
 
-## The Solution
+![Status](https://img.shields.io/badge/status-prototype-blue)
+![AI Powered](https://img.shields.io/badge/AI-XGBoost%20%7C%20Isolation%20Forest-orange)
+![Backend](https://img.shields.io/badge/backend-FastAPI-green)
+![Frontend](https://img.shields.io/badge/frontend-React%2018-blue)
+![Database](https://img.shields.io/badge/database-MongoDB-darkgreen)
+![Payments](https://img.shields.io/badge/payments-Razorpay-purple)
 
-Guide-Pay is a parametric income insurance platform that:
-
-1. **Predicts** disruptions before they happen using an AI Forecast Engine
-2. **Monitors** 3 binary, third-party verified triggers every 15 minutes
-3. **Verifies** the worker was actually working before paying out
-4. **Correlates** claims across workers to confirm events and detect fraud
-5. **Auto-pays** to worker UPI within 2 hours — worker does nothing
+**Team SentinelX · KL University**
+Guidewire **DEVTrails 2026**
 
 ---
 
-## Why We Excluded AQI
+# Problem
 
-Platforms don't halt operations during high AQI.  
-Workers can choose to stay home — but this breaks the parametric causation chain.
+Ravi Kumar, 27, delivers for Zepto in **Kondapur, Hyderabad**.
 
-Parametric insurance requires:
+* Earns **₹800/day**
+* Works across **Zepto + Swiggy**
+* No insurance coverage
+
+**July 2024**
+
+IMD issues a **Red Alert**.
+Flash floods hit Hyderabad.
+
+Delivery platforms **suspend operations**.
+
+Ravi loses **₹640 in a single day**.
+
+No claim.
+No coverage.
+No income protection.
+
+---
+
+## Market Reality
+
+* **12+ million** gig delivery workers in India
+* Workers lose **20–30% income during monsoon seasons**
+* **Zero parametric insurance products exist**
+* Estimated **₹4,200 crore annual uninsured exposure**
+
+---
+
+# Solution
+
+**Guide-Pay** is a **parametric income insurance platform** designed specifically for gig delivery workers.
+
+The platform:
+
+1. **Predicts disruptions** before they occur using AI
+2. **Monitors real-world triggers every 15 minutes**
+3. **Verifies worker activity automatically**
+4. **Detects fraud using multi-worker event correlation**
+5. **Pays workers automatically via UPI**
+
+Workers **never file claims**.
+
+Payout happens automatically when disruption conditions are met.
+
+---
+
+# Parametric Triggers
+
+Guide-Pay activates payouts when **objective external events occur**.
+
+| Trigger            | Data Source             | Threshold           | Payout |
+| ------------------ | ----------------------- | ------------------- | ------ |
+| Flood / Rain Alert | IMD SACHET RSS          | Orange / Red alert  | 100%   |
+| Platform Outage    | Downdetector            | >500 outage reports | 75%    |
+| Government Curfew  | District administration | Official order      | 100%   |
+
+All triggers are:
+
+* third-party verified
+* binary
+* geofenced within **5km worker zone**
+* polled every **15 minutes**
+
+---
+
+# Why AQI Is Excluded
+
+Air pollution does not **halt platform operations**.
+
+Workers may choose to stop working voluntarily.
+
+Parametric insurance requires a strict chain:
 
 **objective trigger → verified income loss → payout**
 
-AQI fails at step 2.
-
-Guide-Pay only covers events that cause a platform-level operational halt:  
-binary, verifiable, zero worker discretion.
+AQI fails to guarantee **income interruption**, so it is excluded.
 
 ---
 
-## The 3 Triggers
+# Target Persona
 
-| Trigger | Source | Threshold | Payout |
-|-------|-------|-------|-------|
-| IMD Flood / Rain Alert | IMD SACHET RSS (official govt) | Orange or Red alert in district | 100% cap |
-| Platform App Outage | Downdetector + platform status | >500 reports in 2hr window | 75% cap |
-| Government Curfew | Admin verification + district order | Official order in worker's zone | 100% cap |
+**Ravi Kumar, 27**
+Delivery partner in Kondapur, Hyderabad
 
-All triggers: **third-party verified · binary · geofenced 5km · polled every 15 minutes**
+Works on:
 
----
+* Zepto
+* Swiggy
 
-## Persona
+Income:
 
-**Ravi Kumar, 27 — Multi-platform delivery worker, Kondapur, Hyderabad**
+₹700 – ₹900 per day
 
-Active on Zepto + Swiggy  
-Earns ₹700–900/day  
-Loses ₹500–640 on flood days
+Loss during floods:
 
-No insurance. No savings buffer.
+₹500 – ₹640 per day
 
-Tier-1 city, flood-prone zone.
+Primary target cities:
 
-Target segment:
-
-Multi-platform **Q-commerce + food delivery workers** in
-
-- Hyderabad
-- Mumbai
-- Chennai
-- Bengaluru
+* Hyderabad
+* Mumbai
+* Chennai
+* Bengaluru
 
 ---
 
-## Premium Model
+# Premium Model
+
+Weekly premium is calculated using zone risk and worker reliability.
 
 ```text
-Weekly Premium = ₹35 (base) × Zone Risk Multiplier × Worker Risk Adjustment
+Weekly Premium
+= ₹35 × Zone Risk Multiplier × Worker Risk Adjustment
+```
 
-Zone Risk Multiplier (0.8 → 1.4)
-Flood risk: 50% weight (NDMA flood atlas)
-Curfew risk: 30% weight (historical district data)
-Outage risk: 20% weight (Downdetector historical)
+### Zone Risk Multiplier
 
-Worker Risk Adjustment (0.85 → 1.15)
-Score > 0.75 → 0.85× (discount — reward reliable workers)
-Score 0.50–0.75 → 1.00×
-Score < 0.50 → 1.15× (surcharge)
-````
+Range: **0.8 → 1.4**
 
-| City                     | Base | Zone Adj | Worker Adj | Final |
-| ------------------------ | ---- | -------- | ---------- | ----- |
-| Kondapur, Hyd (Low Risk) | ₹35  | ×1.40    | ×0.90      | ₹44   |
-| Kurla, Mumbai            | ₹35  | ×1.40    | ×1.00      | ₹49   |
-| Koramangala, Blr         | ₹35  | ×1.10    | ×1.00      | ₹39   |
+Risk weights:
+
+* Flood risk → 50%
+* Curfew risk → 30%
+* Platform outage risk → 20%
+
+### Worker Risk Adjustment
+
+Range: **0.85 → 1.15**
+
+| Risk Score | Multiplier |
+| ---------- | ---------- |
+| >0.75      | 0.85       |
+| 0.50–0.75  | 1.00       |
+| <0.50      | 1.15       |
 
 ---
 
-## 5 AI / ML Modules
+# Example Premiums
 
-### 1 — Predictive Disruption Engine
+| City                    | Base | Zone Adj | Worker Adj | Final |
+| ----------------------- | ---- | -------- | ---------- | ----- |
+| Kondapur (Hyderabad)    | ₹35  | ×1.40    | ×0.90      | ₹44   |
+| Kurla (Mumbai)          | ₹35  | ×1.40    | ×1.00      | ₹49   |
+| Koramangala (Bengaluru) | ₹35  | ×1.10    | ×1.00      | ₹39   |
+
+---
+
+# AI / ML Components
+
+Guide-Pay integrates **5 AI modules**.
+
+---
+
+## Predictive Disruption Engine
 
 Predicts floods before they happen.
 
-Judges love **predictive intelligence**, not just reactive automation.
+Model
 
-**Model:** XGBoost Regressor
+**XGBoost Regressor**
 
-**Inputs**
+Inputs
 
-* IMD 7-day rainfall forecast
+* IMD rainfall forecast
 * Zone elevation (SRTM DEM)
-* Flood history (NDMA atlas)
+* NDMA flood history
 * Monsoon intensity index
-* Soil moisture (NASA SMAP)
+* NASA SMAP soil moisture
 
-**Output**
+Output
 
-`next_24h_disruption_probability` per zone
+```text
+next_24h_disruption_probability
+```
 
-Worker sees:
+Example
 
-⚠ High flood probability tomorrow · Coverage automatically extended
-
-Admin sees:
-
-Hyderabad Kondapur → 78% risk → 32 workers → ₹19,200 exposure
-
----
-
-### 2 — Platform Activity Verification
-
-Proves the worker was actually working before the trigger.
-
-Answers the judge question:
-
-*"How do you know they were working?"*
-
-**Source**
-
-Mock delivery platform API
-(last_order_timestamp, GPS, active session logs)
-
-**Logic**
-
-* `last_order_age < 2hrs` → full payout
-* `2–4hrs` → 75% payout
-* `>6hrs` → flagged
-
-**Output**
-
-`activity_verified: true/false`
-`payout_multiplier: 0.75–1.0`
+```text
+Kondapur Flood Risk → 78%
+32 workers affected
+₹19,200 potential exposure
+```
 
 ---
 
-### 3 — Worker Risk Score (Insurance Credit Score)
+## Platform Activity Verification
 
-Behavior-based insurance pricing.
+Ensures the worker was **actively working before payout**.
 
-Low-risk workers pay less.
+Data source
 
-**Score Range**
+Mock delivery platform API.
 
+Logic
+
+| Last Order Age | Payout  |
+| -------------- | ------- |
+| <2 hrs         | 100%    |
+| 2–4 hrs        | 75%     |
+| >6 hrs         | Flagged |
+
+---
+
+## Worker Risk Score
+
+Insurance **credit score for gig workers**.
+
+Range
+
+```text
 0.0 → 1.0
-(higher score = lower risk)
+```
 
-**Components**
+Score components
 
-* delivery_activity (35%)
-* claim_frequency (30%)
-* fraud_risk (20%)
-* active_hours (15%)
+* Delivery activity → 35%
+* Claim frequency → 30%
+* Fraud signals → 20%
+* Active hours → 15%
 
-Example:
+Example
 
-Score **0.82 → Low Risk → 0.85× multiplier → ₹5/week saved**
-
----
-
-### 4 — Multi-Worker Event Correlation
-
-Collective signal to confirm disruptions and reduce fraud.
-
-**Logic**
-
-* `>60%` of zone workers claim same event → **CONFIRMED**
-* `<10%` or `<3 workers` → **ANOMALY**
-
-Example:
-
-Kondapur flood
-`28 / 33 = 84%` → Auto-approved
-
-Bengaluru outage
-`1 / 14 = 7%` → Flagged
+```text
+Score: 0.82
+Risk Tier: Low
+Premium multiplier: 0.85
+Weekly savings: ₹5
+```
 
 ---
 
-### 5 — Fraud Detection Engine
+## Multi-Worker Event Correlation
 
-7-check rule-based engine (Phase 2) → Isolation Forest (Phase 3)
+Confirms disruption events collectively.
 
-Checks include:
+| Zone Claims  | Result    |
+| ------------ | --------- |
+| >60% workers | Confirmed |
+| <10% workers | Flagged   |
 
-* GPS distance
-* duplicate claim
-* claim frequency
-* IP city match
-* device consistency
+Example
+
+```text
+Kondapur Flood
+28 / 33 workers → 84%
+Auto-approved
+```
+
+---
+
+## Fraud Detection Engine
+
+Two stages:
+
+Phase 2
+Rule-based detection
+
+Phase 3
+Isolation Forest model
+
+Fraud checks include:
+
+* GPS mismatch
+* duplicate claims
+* claim frequency anomaly
+* IP location mismatch
+* device inconsistency
 * activity verification
 * zone correlation ratio
 
-Example:
+Rule
 
-GPS inside zone + IP from different city
-→ **+0.80 fraud flag**
-
-Score rules:
-
-* `>0.70` → manual review
-* `<0.70` → auto approved → Razorpay payout
-
----
-
-## Tech Stack
-
-| Layer           | Technology                   |
-| --------------- | ---------------------------- |
-| Frontend        | React 18 + TailwindCSS       |
-| Backend         | FastAPI (Python 3.11)        |
-| Database        | MongoDB                      |
-| Auth            | Firebase OTP                 |
-| ML — Premium    | XGBoost                      |
-| ML — Prediction | XGBoost Regressor            |
-| ML — Fraud      | Isolation Forest             |
-| Flood Trigger   | IMD SACHET RSS               |
-| Outage Trigger  | Downdetector + platform APIs |
-| Activity Verify | Mock delivery platform API   |
-| Maps            | Google Maps JS API           |
-| Payments        | Razorpay                     |
-| Frontend Deploy | Vercel                       |
-| Backend Deploy  | Railway                      |
-
----
-
-## MongoDB Schema
-
-```javascript
-// workers
-{
- phone,
- name,
- platforms[],
- zone:{lat,lng,district},
- upi_id,
- risk_score,
- risk_tier,
- premium_multiplier,
- score_components:{delivery_activity, claim_frequency, fraud_risk, active_hours},
- last_order_ts,
- razorpay_fund_account_id
-}
-
-// policies
-{
- worker_id,
- weekly_premium,
- coverage_cap,
- zone_multiplier,
- worker_multiplier,
- status,
- coverage_start,
- coverage_end
-}
-
-// trigger_events
-{
- trigger_type,
- district,
- severity,
- source_url,
- fired_at,
- claims_count,
- zone_total_workers,
- correlation_ratio,
- confirmation_status
-}
-
-// claims
-{
- worker_id,
- policy_id,
- trigger_event_id,
- trigger_type,
- claim_amount,
- activity_verified,
- last_order_age_minutes,
- fraud_score,
- fraud_flags[],
- correlation_boost,
- status,
- payout_reference,
- created_at,
- paid_at
-}
-
-// disruption_forecasts
-{
- zone_district,
- prediction_date,
- disruption_probability,
- disruption_type,
- model_inputs:{imd_rainfall_mm, zone_elevation_m, flood_history_5yr, monsoon_index},
- estimated_affected_workers,
- estimated_payout_exposure
-}
+```text
+Fraud score >0.70 → manual review
+Fraud score <0.70 → auto payout
 ```
 
 ---
 
-## Automated Claim Flow
+# System Architecture
+
+```text
+IMD SACHET RSS
+       │
+       ▼
+Trigger Engine (15 min polling)
+       │
+       ▼
+Event Detection
+       │
+       ▼
+Worker Activity Verification
+       │
+       ▼
+Fraud Detection Engine
+       │
+       ▼
+Zone Correlation Check
+       │
+       ▼
+Auto Claim Approval
+       │
+       ▼
+UPI Payout via Razorpay
+```
+
+---
+
+# Tech Stack
+
+| Layer            | Technology             |
+| ---------------- | ---------------------- |
+| Frontend         | React 18 + TailwindCSS |
+| Backend          | FastAPI                |
+| Database         | MongoDB                |
+| Authentication   | Firebase OTP           |
+| ML Models        | XGBoost                |
+| Fraud Detection  | Isolation Forest       |
+| Trigger Data     | IMD SACHET             |
+| Outage Data      | Downdetector           |
+| Maps             | Google Maps API        |
+| Payments         | Razorpay               |
+| Frontend Hosting | Vercel                 |
+| Backend Hosting  | Railway                |
+
+---
+
+# Automated Claim Flow
 
 ```text
 Every 15 minutes
-Trigger engine polls IMD SACHET + Downdetector
 
-On trigger detection:
-
-→ Create TriggerEvent in MongoDB
-→ Find workers in geofenced zone (5km)
-
-For each worker:
-
-1. Check activity (last_order_timestamp)
-2. Create claim if activity verified
-3. Run fraud engine
-4. Calculate zone correlation ratio
-5. fraud_score < 0.70 → auto approve
-6. Razorpay payout
-
-Worker receives UPI payout within 2 hours
+1. Trigger engine polls IMD + Downdetector
+2. Detect disruption event
+3. Create TriggerEvent in MongoDB
+4. Find workers in geofenced zone
+5. Verify worker activity
+6. Run fraud detection
+7. Calculate correlation ratio
+8. Approve payout
+9. Send UPI transfer via Razorpay
 ```
 
----
-
-## Market Sizing
-
-| Metric                       | Number             |
-| ---------------------------- | ------------------ |
-| Gig delivery workers India   | ~12 million        |
-| Tier-1 city workers (target) | ~4.2 million       |
-| TAM                          | ₹30,576 crore/year |
-| SAM (4 cities)               | ₹6,370 crore/year  |
-| SOM Year 1                   | ₹9.55 crore        |
-| Target loss ratio            | 65%                |
+Workers receive payouts **within 2 hours**.
 
 ---
 
-## Roadmap
+# Market Size
 
-**Phase 1 — Seed (Mar 4–20)**
-Architecture, prototype, AI module specs
-
-**Phase 2 — Scale (Mar 21–Apr 4)**
-Auth, trigger engine, activity verification, fraud rules, mock payouts
-
-**Phase 3 — Soar (Apr 5–17)**
-Predictive engine live, Isolation Forest fraud model, full Razorpay, dashboards, final pitch
-
----
-
-## Team SentinelX — KL University
-
-|            |                 |
-| ---------- | --------------- |
-| Demo Video | YouTube link    |
-| Repository | github.com/repo |
-| Prototype  | Vercel link     |
+| Metric            | Value         |
+| ----------------- | ------------- |
+| Gig workers India | ~12 million   |
+| Tier-1 workers    | ~4.2 million  |
+| TAM               | ₹30,576 crore |
+| SAM               | ₹6,370 crore  |
+| SOM (Year 1)      | ₹9.55 crore   |
+| Target Loss Ratio | 65%           |
 
 ---
 
-*Guide-Pay — We don't just react to disruptions. We predict them.*
+# Roadmap
 
-```
+### Phase 1 — Seed
+
+Architecture design
+AI module specification
+Prototype
+
+### Phase 2 — Scale
+
+Authentication
+Trigger detection engine
+Activity verification
+Fraud rules
+
+### Phase 3 — Soar
+
+Predictive ML engine
+Isolation Forest fraud detection
+Razorpay payouts
+Full dashboards
 
 ---
 
+# Demo
+
+Demo Video
+YouTube link
+
+Prototype
+Vercel link
+
+Repository
+GitHub repo
+
+---
+
+# Team SentinelX
+
+KL University
+Guidewire DEVTrails 2026
+
+---
+
+# Vision
+
+Guide-Pay transforms gig insurance from **reactive claims processing** to **predictive income protection**.
+
+Instead of waiting for workers to report losses,
+
+the system **predicts disruptions, verifies activity, and pays automatically**.
+
+---
+
+**Guide-Pay**
+
+*We don't just react to disruptions. We predict them.*
