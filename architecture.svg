@@ -1,0 +1,173 @@
+<svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="620" fill="#f8f8fa" rx="0"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" font-size="16" font-weight="700" fill="#0c0c0d" letter-spacing="-0.5">Guide-Pay — System Architecture</text>
+  <text x="450" y="54" text-anchor="middle" font-size="11" fill="#8a8a96">Team SentinelX · KL University · Guidewire DEVTrails 2026</text>
+
+  <!-- ═══ ROW 1: CLIENTS ═══ -->
+  <text x="24" y="88" font-size="10" font-weight="700" fill="#8a8a96" letter-spacing="1.5" text-transform="uppercase">CLIENTS</text>
+  <line x1="80" y1="84" x2="876" y2="84" stroke="#e8e8ec" stroke-width="1"/>
+
+  <!-- Worker App -->
+  <rect x="24" y="96" width="130" height="64" rx="10" fill="white" stroke="#e8e8ec" stroke-width="1.5"/>
+  <text x="89" y="120" text-anchor="middle" font-size="18">📱</text>
+  <text x="89" y="138" text-anchor="middle" font-size="12" font-weight="600" fill="#0c0c0d">Worker App</text>
+  <text x="89" y="152" text-anchor="middle" font-size="10" fill="#8a8a96">React · Web/PWA</text>
+
+  <!-- Admin Dashboard -->
+  <rect x="174" y="96" width="130" height="64" rx="10" fill="white" stroke="#e8e8ec" stroke-width="1.5"/>
+  <text x="239" y="120" text-anchor="middle" font-size="18">🖥</text>
+  <text x="239" y="138" text-anchor="middle" font-size="12" font-weight="600" fill="#0c0c0d">Admin Panel</text>
+  <text x="239" y="152" text-anchor="middle" font-size="10" fill="#8a8a96">React · TailwindCSS</text>
+
+  <!-- ═══ ROW 2: API GATEWAY ═══ -->
+  <text x="24" y="186" font-size="10" font-weight="700" fill="#8a8a96" letter-spacing="1.5">API GATEWAY</text>
+  <line x1="102" y1="182" x2="876" y2="182" stroke="#e8e8ec" stroke-width="1"/>
+
+  <rect x="24" y="194" width="876" height="48" rx="10" fill="#0c0c0d"/>
+  <text x="462" y="213" text-anchor="middle" font-size="12" font-weight="700" fill="white">FastAPI · Python 3.11</text>
+  <text x="462" y="230" text-anchor="middle" font-size="10" fill="#888">Auth · Workers · Policies · Premium · Claims · Admin · Triggers</text>
+
+  <!-- Arrows down from clients -->
+  <line x1="89" y1="160" x2="89" y2="194" stroke="#e8e8ec" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="239" y1="160" x2="239" y2="194" stroke="#e8e8ec" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="89,192 85,184 93,184" fill="#e8e8ec"/>
+  <polygon points="239,192 235,184 243,184" fill="#e8e8ec"/>
+
+  <!-- ═══ ROW 3: SERVICES ═══ -->
+  <text x="24" y="268" font-size="10" font-weight="700" fill="#8a8a96" letter-spacing="1.5">CORE SERVICES</text>
+  <line x1="121" y1="264" x2="876" y2="264" stroke="#e8e8ec" stroke-width="1"/>
+
+  <!-- Auth Service -->
+  <rect x="24" y="276" width="130" height="72" rx="10" fill="white" stroke="#e8e8ec" stroke-width="1.5"/>
+  <rect x="24" y="276" width="130" height="6" rx="5" fill="#3b82f6"/>
+  <text x="89" y="304" text-anchor="middle" font-size="11" font-weight="700" fill="#0c0c0d">Auth Service</text>
+  <text x="89" y="320" text-anchor="middle" font-size="10" fill="#8a8a96">Firebase OTP</text>
+  <text x="89" y="336" text-anchor="middle" font-size="10" fill="#8a8a96">JWT Tokens</text>
+
+  <!-- Premium Engine -->
+  <rect x="174" y="276" width="130" height="72" rx="10" fill="white" stroke="#e8e8ec" stroke-width="1.5"/>
+  <rect x="174" y="276" width="130" height="6" rx="5" fill="#00c896"/>
+  <text x="239" y="304" text-anchor="middle" font-size="11" font-weight="700" fill="#0c0c0d">Premium Engine</text>
+  <text x="239" y="320" text-anchor="middle" font-size="10" fill="#8a8a96">XGBoost Model</text>
+  <text x="239" y="336" text-anchor="middle" font-size="10" fill="#8a8a96">Worker Risk Score</text>
+
+  <!-- Trigger Engine -->
+  <rect x="324" y="276" width="130" height="72" rx="10" fill="white" stroke="#e8e8ec" stroke-width="1.5"/>
+  <rect x="324" y="276" width="130" height="6" rx="5" fill="#f03e3e"/>
+  <text x="389" y="304" text-anchor="middle" font-size="11" font-weight="700" fill="#0c0c0d">Trigger Engine</text>
+  <text x="389" y="320" text-anchor="middle" font-size="10" fill="#8a8a96">Cron · 15 min</text>
+  <text x="389" y="336" text-anchor="middle" font-size="10" fill="#8a8a96">IMD · Downdetector</text>
+
+  <!-- Fraud Engine -->
+  <rect x="474" y="276" width="130" height="72" rx="10" fill="white" stroke="#e8e8ec" stroke-width="1.5"/>
+  <rect x="474" y="276" width="130" height="6" rx="5" fill="#e8a020"/>
+  <text x="539" y="304" text-anchor="middle" font-size="11" font-weight="700" fill="#0c0c0d">Fraud Engine</text>
+  <text x="539" y="320" text-anchor="middle" font-size="10" fill="#8a8a96">Isolation Forest</text>
+  <text x="539" y="336" text-anchor="middle" font-size="10" fill="#8a8a96">7-Check Rules</text>
+
+  <!-- Predict Engine -->
+  <rect x="624" y="276" width="130" height="72" rx="10" fill="white" stroke="#e8e8ec" stroke-width="1.5"/>
+  <rect x="624" y="276" width="130" height="6" rx="5" fill="#7c3aed"/>
+  <text x="689" y="304" text-anchor="middle" font-size="11" font-weight="700" fill="#0c0c0d">Predict Engine</text>
+  <text x="689" y="320" text-anchor="middle" font-size="10" fill="#8a8a96">XGBoost Regressor</text>
+  <text x="689" y="336" text-anchor="middle" font-size="10" fill="#8a8a96">24h Forecast</text>
+
+  <!-- Payout Service -->
+  <rect x="774" y="276" width="126" height="72" rx="10" fill="white" stroke="#e8e8ec" stroke-width="1.5"/>
+  <rect x="774" y="276" width="126" height="6" rx="5" fill="#16a34a"/>
+  <text x="837" y="304" text-anchor="middle" font-size="11" font-weight="700" fill="#0c0c0d">Payout Service</text>
+  <text x="837" y="320" text-anchor="middle" font-size="10" fill="#8a8a96">Razorpay SDK</text>
+  <text x="837" y="336" text-anchor="middle" font-size="10" fill="#8a8a96">UPI Transfer</text>
+
+  <!-- Arrows from gateway to services -->
+  <line x1="462" y1="242" x2="89" y2="276" stroke="#e8e8ec" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="462" y1="242" x2="239" y2="276" stroke="#e8e8ec" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="462" y1="242" x2="389" y2="276" stroke="#e8e8ec" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="462" y1="242" x2="539" y2="276" stroke="#e8e8ec" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="462" y1="242" x2="689" y2="276" stroke="#e8e8ec" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="462" y1="242" x2="837" y2="276" stroke="#e8e8ec" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- ═══ ROW 4: DATA LAYER ═══ -->
+  <text x="24" y="374" font-size="10" font-weight="700" fill="#8a8a96" letter-spacing="1.5">DATA LAYER</text>
+  <line x1="92" y1="370" x2="876" y2="370" stroke="#e8e8ec" stroke-width="1"/>
+
+  <!-- MongoDB -->
+  <rect x="24" y="382" width="200" height="64" rx="10" fill="white" stroke="#e8e8ec" stroke-width="1.5"/>
+  <text x="124" y="406" text-anchor="middle" font-size="18">🍃</text>
+  <text x="124" y="424" text-anchor="middle" font-size="12" font-weight="600" fill="#0c0c0d">MongoDB</text>
+  <text x="124" y="438" text-anchor="middle" font-size="10" fill="#8a8a96">workers · policies · claims · triggers · forecasts</text>
+
+  <!-- Redis -->
+  <rect x="244" y="382" width="160" height="64" rx="10" fill="white" stroke="#e8e8ec" stroke-width="1.5"/>
+  <text x="324" y="406" text-anchor="middle" font-size="18">⚡</text>
+  <text x="324" y="424" text-anchor="middle" font-size="12" font-weight="600" fill="#0c0c0d">Redis</text>
+  <text x="324" y="438" text-anchor="middle" font-size="10" fill="#8a8a96">Trigger state · Dedup cache</text>
+
+  <!-- ML Models -->
+  <rect x="424" y="382" width="200" height="64" rx="10" fill="white" stroke="#e8e8ec" stroke-width="1.5"/>
+  <text x="524" y="406" text-anchor="middle" font-size="18">🤖</text>
+  <text x="524" y="424" text-anchor="middle" font-size="12" font-weight="600" fill="#0c0c0d">ML Model Store</text>
+  <text x="524" y="438" text-anchor="middle" font-size="10" fill="#8a8a96">XGBoost · Isolation Forest · Pickle</text>
+
+  <!-- Vercel + Railway -->
+  <rect x="644" y="382" width="256" height="64" rx="10" fill="white" stroke="#e8e8ec" stroke-width="1.5"/>
+  <text x="772" y="406" text-anchor="middle" font-size="18">☁️</text>
+  <text x="772" y="424" text-anchor="middle" font-size="12" font-weight="600" fill="#0c0c0d">Deploy</text>
+  <text x="772" y="438" text-anchor="middle" font-size="10" fill="#8a8a96">Vercel (Frontend) · Railway (Backend)</text>
+
+  <!-- ═══ ROW 5: EXTERNAL APIs ═══ -->
+  <text x="24" y="472" font-size="10" font-weight="700" fill="#8a8a96" letter-spacing="1.5">EXTERNAL APIs</text>
+  <line x1="114" y1="468" x2="876" y2="468" stroke="#e8e8ec" stroke-width="1"/>
+
+  <!-- IMD -->
+  <rect x="24" y="480" width="150" height="56" rx="10" fill="#fff8ec" stroke="#f5c84233" stroke-width="1.5"/>
+  <text x="99" y="502" text-anchor="middle" font-size="11" font-weight="700" fill="#0c0c0d">IMD SACHET RSS</text>
+  <text x="99" y="518" text-anchor="middle" font-size="10" fill="#8a8a96">Flood · Rain Alerts</text>
+  <text x="99" y="530" text-anchor="middle" font-size="9" fill="#e8a020">Official Govt · Free</text>
+
+  <!-- Downdetector -->
+  <rect x="194" y="480" width="150" height="56" rx="10" fill="#fff0f0" stroke="#f03e3e22" stroke-width="1.5"/>
+  <text x="269" y="502" text-anchor="middle" font-size="11" font-weight="700" fill="#0c0c0d">Downdetector</text>
+  <text x="269" y="518" text-anchor="middle" font-size="10" fill="#8a8a96">Platform Outages</text>
+  <text x="269" y="530" text-anchor="middle" font-size="9" fill="#f03e3e">Scraper · RSS</text>
+
+  <!-- Platform API -->
+  <rect x="364" y="480" width="150" height="56" rx="10" fill="#f0fdf4" stroke="#16a34a22" stroke-width="1.5"/>
+  <text x="439" y="502" text-anchor="middle" font-size="11" font-weight="700" fill="#0c0c0d">Platform API</text>
+  <text x="439" y="518" text-anchor="middle" font-size="10" fill="#8a8a96">Activity Verify</text>
+  <text x="439" y="530" text-anchor="middle" font-size="9" fill="#16a34a">Mock · last_order_ts</text>
+
+  <!-- Razorpay -->
+  <rect x="534" y="480" width="150" height="56" rx="10" fill="#eff4ff" stroke="#2563eb22" stroke-width="1.5"/>
+  <text x="609" y="502" text-anchor="middle" font-size="11" font-weight="700" fill="#0c0c0d">Razorpay</text>
+  <text x="609" y="518" text-anchor="middle" font-size="10" fill="#8a8a96">UPI Payouts</text>
+  <text x="609" y="530" text-anchor="middle" font-size="9" fill="#2563eb">Test Mode · Sandbox</text>
+
+  <!-- Google Maps -->
+  <rect x="704" y="480" width="172" height="56" rx="10" fill="#f3f0ff" stroke="#7c3aed22" stroke-width="1.5"/>
+  <text x="790" y="502" text-anchor="middle" font-size="11" font-weight="700" fill="#0c0c0d">Google Maps API</text>
+  <text x="790" y="518" text-anchor="middle" font-size="10" fill="#8a8a96">Zone Geofencing</text>
+  <text x="790" y="530" text-anchor="middle" font-size="9" fill="#7c3aed">5km Radius · Free Tier</text>
+
+  <!-- ═══ ZERO TOUCH FLOW ═══ -->
+  <rect x="24" y="554" width="852" height="52" rx="10" fill="#0c0c0d"/>
+  <text x="450" y="574" text-anchor="middle" font-size="11" font-weight="700" fill="white">⚡  Zero-Touch Claim Flow</text>
+  <text x="450" y="591" text-anchor="middle" font-size="10" fill="#888">Trigger Detected → Activity Verified → Correlation Checked → Fraud Scored → Auto-Approved → UPI Paid · Under 2 Hours</text>
+
+  <!-- Connector dots -->
+  <circle cx="389" cy="348" r="3" fill="#f03e3e"/>
+  <line x1="389" y1="348" x2="389" y2="382" stroke="#f03e3e" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <circle cx="124" cy="348" r="3" fill="#3b82f6"/>
+  <line x1="124" y1="348" x2="124" y2="382" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <circle cx="539" cy="348" r="3" fill="#e8a020"/>
+  <line x1="539" y1="348" x2="524" y2="382" stroke="#e8a020" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <circle cx="689" cy="348" r="3" fill="#7c3aed"/>
+  <line x1="689" y1="348" x2="689" y2="382" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <circle cx="837" cy="348" r="3" fill="#16a34a"/>
+  <line x1="837" y1="348" x2="837" y2="382" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+</svg>
