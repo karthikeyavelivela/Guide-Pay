@@ -24,7 +24,7 @@ Guidewire **DEVTrails 2026** — Phase 1 Submission
 
 | | Link |
 |---|---|
-| 📹 Demo Video | [Watch on YouTube](PASTE_YOUTUBE_LINK_HERE) |
+| 📹 Demo Video | [Watch on YouTube](https://youtu.be/QRHPeoqW7uU?si=mPIfuIKd2YHWX5I6) |
 | 🖥 Live Prototype | [Open Demo](https://guidewire-pay.vercel.app/) |
 | 💻 Repository | [GitHub](https://github.com/karthikeyavelivela/Guide-Pay) |
 
